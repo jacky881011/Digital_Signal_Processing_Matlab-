@@ -1,8 +1,6 @@
 
 clear;
 
-maxT = 3; minT = -3;
-
 t = linspace(-3, 3);        % domain of the func
 y1 = sinc(t);
 y2 = sinc(t).^2;
@@ -25,15 +23,16 @@ grid
 
 %% Use the original function
 dt = 0.001;
-length = -3:dt:3;
+N = 3;
+length = -N:dt:N;
 
 sinc1 = sin(pi*length)./(pi*length);
-sinc2 = (sin(pi*length)./(pi*length)).^2;
+sinc2 = (sinc1).^2;                         % sinc(t)^2
 
 figure
-h1 = plot(length, sinc1, 'b', LineWidth=2);
+h1 = plot(length, sinc1, 'r', LineWidth=1.5);
 hold on
-h2 = plot(length, sinc2, 'k', LineWidth=2);
+h2 = plot(length, sinc2, 'b', LineWidth=1.5);
 title('Practice 1-1 print sinc and sinc^2');
 xlabel('sinc^2(t)');
 ylabel('time t (sec)');
